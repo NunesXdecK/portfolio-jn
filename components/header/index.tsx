@@ -1,16 +1,27 @@
-import SwitchButton from "../button/switchButton"
 import { useState } from "react"
+import Container from "../container"
+import SwitchButton from "../button/switchButton"
+import { SunIcon, MoonIcon } from '@heroicons/react/24/solid'
+
 
 export default function Header() {
     const [isActive, setIsActive] = useState(false)
     return (
-        <div className="p-8 fixed top-0 min-w-full h-20 bg-cyan-100">
-            <SwitchButton
-                isActive={isActive}
-                onSetActive={setIsActive}
-                contentOn={(<span>ON</span>)}
-                contentOff={(<span>OFF</span>)}
-            />
+        <div className="fixed top-0 min-w-full h-20 bg-gray-800">
+            <Container className="h-20 items-center p-4">
+                <SwitchButton
+                    isActive={isActive}
+                    onSetActive={setIsActive}
+                    contentOn={(<MoonIcon className="h-5 w-5 text-white" />)}
+                    contentOff={(<SunIcon className="h-5 w-5 text-white" />)}
+                />
+                <SwitchButton
+                    isActive={isActive}
+                    onSetActive={setIsActive}
+                    contentOn={(<MoonIcon className="h-5 w-5 text-white" />)}
+                    contentOff={(<SunIcon className="h-5 w-5 text-white" />)}
+                />
+            </Container>
         </div>
     )
 }

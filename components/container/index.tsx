@@ -1,17 +1,18 @@
 interface ContainerProps {
-    id: string,
     className?: string,
     children?: any | any[],
 }
 
 export default function Container(props: ContainerProps) {
-    let className = "min-w-max pt-20"
+    let className = "flex justify-center"
     if (props.className) {
-        className = className + " "+ props.className
+        className = className + " " + props.className
     }
     return (
-        <div id={props.id} className={className}>
-            {props.children}
+        <div className={className}>
+            <div className="w-[1260px]">
+                {props.children}
+            </div>
         </div>
     )
 }

@@ -1,6 +1,7 @@
 import Head from "next/head"
-import Container from "../components/container"
 import Header from "../components/header"
+import Container from "../components/container"
+import Page from "../components/container/page"
 import NavigationBar from "../components/navigationBar"
 
 export default function Home() {
@@ -13,18 +14,16 @@ export default function Home() {
             </Head>
             <NavigationBar />
             <Header />
-            <div className="flex justify-center">
-                <div className="w-[1260px]">
-                    <Container id="start" className="bg-gray-200 text-white">
-                        <span>teste 01</span>
-                        <span>teste 02</span>
-                    </Container>
-                    <Container id="end">
-                        <span>teste 01</span>
-                        <span>teste 02</span>
-                    </Container>
-                </div>
-            </div>
+            <Container>
+                <Page id="start" className="bg-gray-200 text-white">
+                    <p>teste 01</p>
+                    <p>teste 02</p>
+                </Page>
+                <Page id="end">
+                    <p>teste 01</p>
+                    <p>teste 02</p>
+                </Page>
+            </Container>
         </div>
     )
 }
