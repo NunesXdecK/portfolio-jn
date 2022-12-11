@@ -10,7 +10,7 @@ interface SwitchButtonProps {
 }
 
 export default function SwitchButton(props: SwitchButtonProps) {
-    let className = ""
+    let className = "hover:opacity-80 duration-200"
     if (props.className) {
         className = className + " " + props.className
     }

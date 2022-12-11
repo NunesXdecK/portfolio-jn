@@ -1,4 +1,5 @@
 interface ContainerProps {
+    isDark?: boolean,
     className?: string,
     children?: any | any[],
 }
@@ -8,9 +9,12 @@ export default function Container(props: ContainerProps) {
     if (props.className) {
         className = className + " " + props.className
     }
+    if (props.isDark) {
+        className = className + " dark"
+    }
     return (
         <div className={className}>
-            <div className="w-[1260px]">
+            <div className="w-full max-w-[1260px]">
                 {props.children}
             </div>
         </div>
