@@ -55,37 +55,37 @@ export default function Home() {
                         <Image width={200} height={200}
                             priority
                             className="rounded-full"
-                            alt="https://raw.githubusercontent.com/NunesXdecK/portfolio-jn/main/public/alt-image.png"
-                            src="https://raw.githubusercontent.com/NunesXdecK/portfolio-jn/main/public/profile-image.png" />
+                            alt="/alt-image.png"
+                            src="/profile-image.png" />
                     </ImageBubble>
                     <div className="flex flex-row gap-2 justify-between">
                         <ImageBubble>
                             <Image width={50} height={50}
                                 priority
                                 className="rounded-full"
-                                alt="https://raw.githubusercontent.com/NunesXdecK/portfolio-jn/main/public/alt-image.png"
-                                src="https://raw.githubusercontent.com/NunesXdecK/portfolio-jn/main/public/profile-image.png" />
+                                alt="/alt-image.png"
+                                src="/profile-image.png" />
                         </ImageBubble>
                         <ImageBubble>
                             <Image width={50} height={50}
                                 priority
                                 className="rounded-full"
-                                alt="https://raw.githubusercontent.com/NunesXdecK/portfolio-jn/main/public/alt-image.png"
-                                src="https://raw.githubusercontent.com/NunesXdecK/portfolio-jn/main/public/profile-image.png" />
+                                alt="/alt-image.png"
+                                src="/profile-image.png" />
                         </ImageBubble>
                         <ImageBubble>
                             <Image width={50} height={50}
                                 priority
                                 className="rounded-full"
-                                alt="https://raw.githubusercontent.com/NunesXdecK/portfolio-jn/main/public/alt-image.png"
-                                src="https://raw.githubusercontent.com/NunesXdecK/portfolio-jn/main/public/profile-image.png" />
+                                alt="/alt-image.png"
+                                src="/profile-image.png" />
                         </ImageBubble>
                         <ImageBubble>
                             <Image width={50} height={50}
                                 priority
                                 className="rounded-full"
-                                alt="https://raw.githubusercontent.com/NunesXdecK/portfolio-jn/main/public/alt-image.png"
-                                src="https://raw.githubusercontent.com/NunesXdecK/portfolio-jn/main/public/profile-image.png" />
+                                alt="/alt-image.png"
+                                src="/profile-image.png" />
                         </ImageBubble>
                     </div>
                     <div className="mt-4 flex flex-row gap-2 justify-between">
@@ -93,29 +93,29 @@ export default function Home() {
                             <Image width={50} height={50}
                                 priority
                                 className="rounded-full"
-                                alt="https://raw.githubusercontent.com/NunesXdecK/portfolio-jn/main/public/alt-image.png"
-                                src="https://raw.githubusercontent.com/NunesXdecK/portfolio-jn/main/public/profile-image.png" />
+                                alt="/alt-image.png"
+                                src="/profile-image.png" />
                         </ImageBubble>
                         <ImageBubble>
                             <Image width={50} height={50}
                                 priority
                                 className="rounded-full"
-                                alt="https://raw.githubusercontent.com/NunesXdecK/portfolio-jn/main/public/alt-image.png"
-                                src="https://raw.githubusercontent.com/NunesXdecK/portfolio-jn/main/public/profile-image.png" />
+                                alt="/alt-image.png"
+                                src="/profile-image.png" />
                         </ImageBubble>
                         <ImageBubble>
                             <Image width={50} height={50}
                                 priority
                                 className="rounded-full"
-                                alt="https://raw.githubusercontent.com/NunesXdecK/portfolio-jn/main/public/alt-image.png"
-                                src="https://raw.githubusercontent.com/NunesXdecK/portfolio-jn/main/public/profile-image.png" />
+                                alt="/alt-image.png"
+                                src="/profile-image.png" />
                         </ImageBubble>
                         <ImageBubble>
                             <Image width={50} height={50}
                                 priority
                                 className="rounded-full"
-                                alt="https://raw.githubusercontent.com/NunesXdecK/portfolio-jn/main/public/alt-image.png"
-                                src="https://raw.githubusercontent.com/NunesXdecK/portfolio-jn/main/public/profile-image.png" />
+                                alt="/alt-image.png"
+                                src="/profile-image.png" />
                         </ImageBubble>
                     </div>
                 </Page>

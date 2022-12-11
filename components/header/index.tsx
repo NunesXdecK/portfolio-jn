@@ -50,8 +50,8 @@ export default function Header(props: HeaderProps) {
                                 className="rounded-full mx-2"
                                 isActive={props.isEnglish}
                                 onSetActive={props.onSetEnglish}
-                                contentOn={(<Image width={wh} height={wh} className="rounded-full" alt="https://raw.githubusercontent.com/NunesXdecK/portfolio-jn/main/public/alt-image.png" src="https://raw.githubusercontent.com/NunesXdecK/portfolio-jn/main/public/usa-flag.png" />)}
-                                contentOff={(<Image width={wh} height={wh} className="rounded-full" alt="https://raw.githubusercontent.com/NunesXdecK/portfolio-jn/main/public/alt-image.png" src="https://raw.githubusercontent.com/NunesXdecK/portfolio-jn/main/public/br-flag.png" />)}
+                                contentOn={(<Image width={wh} height={wh} className="rounded-full" alt="/alt-image.png" src="/usa-flag.png" />)}
+                                contentOff={(<Image width={wh} height={wh} className="rounded-full" alt="/alt-image.png" src="/br-flag.png" />)}
                             />
                         </div>
                     </div>
