@@ -6,7 +6,7 @@ interface ProfileTextProps {
 
 export default function ProfileText(props: ProfileTextProps) {
     return (
-        <a href="#profile">
+        <a href="#profile" className="pl-0 p-4">
             <Text
                 text="Perfil"
                 textEnglish="Profile"

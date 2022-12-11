@@ -8,7 +8,7 @@ interface ImageBubbleProps {
 }
 
 export default function ImageBubble(props: ImageBubbleProps) {
-    let className = "p rounded-full border-2 border-gray-400 dark:border-gray-600"
+    let className = "p-1 duration-150 hover:scale-105 bg-slate-50 rounded-full border-4 border-gray-400 dark:border-gray-600"
     if (props.className) {
         className = className + " " + props.className
     }

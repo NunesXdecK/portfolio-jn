@@ -1,11 +1,11 @@
 import Head from "next/head"
+import Image from "next/image"
 import { useState } from "react"
 import Text from "../components/text"
 import Header from "../components/header"
 import Container from "../components/container"
 import Page from "../components/container/page"
 import NavigationBar from "../components/navigationBar"
-import Image from "next/image"
 import ChatBubble from "../components/container/chatBubble"
 import ImageBubble from "../components/container/imageBubble"
 
@@ -43,7 +43,7 @@ export default function Home() {
                         />
                     </ChatBubble>
                     <ChatBubble
-                        isCenter
+                        isLeft
                     >
                         <Text
                             isEnglish={isEnglish}
@@ -60,66 +60,83 @@ export default function Home() {
                     </ImageBubble>
                     <div className="flex flex-row gap-2 justify-between">
                         <ImageBubble>
-                            <Image width={50} height={50}
+                            <Image width={35} height={35}
                                 priority
                                 className="rounded-full"
                                 alt="/alt-image.png"
-                                src="/profile-image.png" />
+                                src="/java.png" />
                         </ImageBubble>
                         <ImageBubble>
-                            <Image width={50} height={50}
+                            <Image width={35} height={35}
                                 priority
                                 className="rounded-full"
                                 alt="/alt-image.png"
-                                src="/profile-image.png" />
+                                src="/jsf.png" />
+                        </ImageBubble>
+                    </div>
+
+                    <div className="mt-2 flex flex-row gap-2 justify-between">
+                        <ImageBubble>
+                            <Image width={35} height={35}
+                                priority
+                                className="rounded-full"
+                                alt="/alt-image.png"
+                                src="/hibernate.png" />
                         </ImageBubble>
                         <ImageBubble>
-                            <Image width={50} height={50}
+                            <Image width={35} height={35}
                                 priority
                                 className="rounded-full"
                                 alt="/alt-image.png"
-                                src="/profile-image.png" />
+                                src="/postgres.png" />
                         </ImageBubble>
                         <ImageBubble>
-                            <Image width={50} height={50}
+                            <Image width={35} height={35}
                                 priority
                                 className="rounded-full"
                                 alt="/alt-image.png"
-                                src="/profile-image.png" />
+                                src="/react.png" />
+                        </ImageBubble>
+                        <ImageBubble>
+                            <Image width={35} height={35}
+                                priority
+                                className="rounded-full"
+                                alt="/alt-image.png"
+                                src="/react-native.png" />
                         </ImageBubble>
                     </div>
                     <div className="mt-4 flex flex-row gap-2 justify-between">
                         <ImageBubble>
-                            <Image width={50} height={50}
+                            <Image width={35} height={35}
                                 priority
                                 className="rounded-full"
                                 alt="/alt-image.png"
-                                src="/profile-image.png" />
+                                src="/next-js.png" />
                         </ImageBubble>
                         <ImageBubble>
-                            <Image width={50} height={50}
+                            <Image width={35} height={35}
                                 priority
                                 className="rounded-full"
                                 alt="/alt-image.png"
-                                src="/profile-image.png" />
+                                src="/node-js.png" />
                         </ImageBubble>
                         <ImageBubble>
-                            <Image width={50} height={50}
+                            <Image width={35} height={35}
                                 priority
                                 className="rounded-full"
                                 alt="/alt-image.png"
-                                src="/profile-image.png" />
+                                src="/firebase.png" />
                         </ImageBubble>
                         <ImageBubble>
-                            <Image width={50} height={50}
+                            <Image width={35} height={35}
                                 priority
                                 className="rounded-full"
                                 alt="/alt-image.png"
-                                src="/profile-image.png" />
+                                src="/tailwindcss.png" />
                         </ImageBubble>
                     </div>
                 </Page>
             </Container>
-        </div>
+        </div >
     )
 }
