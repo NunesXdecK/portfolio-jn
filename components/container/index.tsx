@@ -14,9 +14,7 @@ export default function Container(props: ContainerProps) {
     }
     return (
         <div className={className}>
-            <div className="w-full max-w-[1260px]">
-                {props.children}
-            </div>
+            {props.children}
         </div>
     )
 }
