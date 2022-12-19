@@ -5,6 +5,7 @@ import Image from "next/image"
 import { useState } from "react"
 import ProfileText from "../text/profileText"
 import Page from "../container/page"
+import ProjectText from "../text/projectText"
 
 interface HeaderProps {
     isDark: boolean,
@@ -27,6 +28,7 @@ export default function Header(props: HeaderProps) {
             <div className={classNameMenuHolder}>
                 <div className={classNameMenuContent}>
                     <ProfileText isEnglish={props.isEnglish} />
+                    <ProjectText isEnglish={props.isEnglish} />
                 </div>
             </div>
             <div className="fixed top-0 min-w-full h-20 bg-gray-800">
@@ -40,6 +42,10 @@ export default function Header(props: HeaderProps) {
                                 contentOn={(<XMarkIcon className="h-6 w-6 text-white" />)}
                                 contentOff={(<Bars3Icon className="h-6 w-6 text-white" />)}
                             />
+                            <div className="hidden sm:flex w-full sm:flex-row justify-center items-center">
+                                <ProfileText isEnglish={props.isEnglish} />
+                                <ProjectText isEnglish={props.isEnglish} />
+                            </div>
                             <div className="flex flex-row items-center">
                                 <SwitchButton
                                     className="rounded-full mx-2"

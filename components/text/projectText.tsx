@@ -1,15 +1,15 @@
 import Text from ".";
 
-interface ProfileTextProps {
+interface ProjectTextProps {
     isEnglish?: boolean,
 }
 
-export default function ProfileText(props: ProfileTextProps) {
+export default function ProjectText(props: ProjectTextProps) {
     return (
-        <a href="#profile" className="pl-4 duration-200 ">
+        <a href="#project" className="pl-4 duration-200 ">
             <Text
-                text="Perfil"
-                textEnglish="Profile"
+                text="Projetos"
+                textEnglish="Projects"
                 isEnglish={props.isEnglish}
                 className="text-gray-200 hover:text-gray-400"
             />

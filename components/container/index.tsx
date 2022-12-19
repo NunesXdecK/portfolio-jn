@@ -5,7 +5,7 @@ interface ContainerProps {
 }
 
 export default function Container(props: ContainerProps) {
-    let className = "flex justify-center"
+    let className = "flex flex-col justify-center"
     if (props.className) {
         className = className + " " + props.className
     }

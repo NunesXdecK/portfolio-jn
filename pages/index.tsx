@@ -1,14 +1,10 @@
 import Head from "next/head"
-import Image from "next/image"
 import { useState } from "react"
-import Text from "../components/text"
 import Header from "../components/header"
 import Container from "../components/container"
-import Page from "../components/container/page"
-import NavigationBar from "../components/navigationBar"
-import ChatBubble from "../components/container/chatBubble"
-import ImageBubble from "../components/container/imageBubble"
+import ProjectPage from "../components/projectPage"
 import ProfilePage from "../components/profilePage"
+import NavigationBar from "../components/navigationBar"
 
 export default function Home() {
     const [isDark, setIsDark] = useState(false)
@@ -30,6 +26,7 @@ export default function Home() {
             />
             <Container isDark={isDark}>
                 <ProfilePage isEnglish={isEnglish} />
+                <ProjectPage isEnglish={isEnglish} />
             </Container>
         </div >
     )
