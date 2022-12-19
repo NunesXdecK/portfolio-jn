@@ -14,7 +14,6 @@ interface ProfilePageProps {
 export default function ProfilePage(props: ProfilePageProps) {
     return (
         <Page
-            isFirst
             id="profile"
             className="bg-gray-200 text-black dark:bg-gray-700 dark:text-white"
         >
