@@ -22,20 +22,14 @@ export interface Project {
 }
 
 export default function ProjectBubble(props: ProjectBubbleProps) {
-
-    useEffect(() => {
-        if (typeof window !== 'undefined' && props.project.name) {
-            let content = document.getElementById(props.project.name)
-            if (content) {
-                content.style.width = (window.innerWidth <= 1024 ? window.innerWidth / 3 : window.innerWidth / 5) + "px"
-            }
-        }
-    })
-
+    let holderClassName = "w-full text-center p-4 rounded shadow border-2 border-gray-400"
+    if (props?.project?.name === "default") {
+        holderClassName = holderClassName + " "
+    }
     return (
         <div
             id={props.project.name}
-            className="text-center p-4 rounded shadow border-2 border-gray-400">
+            className={holderClassName}>
             <Text text={props.project.name} className="text-md sm:text-3xl" />
             <div className="flex flex-col items-center justify-center">
                 <Image width={200} height={200}
@@ -55,7 +49,7 @@ export default function ProjectBubble(props: ProjectBubbleProps) {
                 </div>
             </div>
             <ChatBubble
-                className="my-6 hidden sm:block">
+                className="w-full my-6 hidden sm:block">
                 <Text
                     className="text-lg"
                     isEnglish={props.isEnglish}

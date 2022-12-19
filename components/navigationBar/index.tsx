@@ -6,6 +6,7 @@ export default function NavigationBar() {
             <div className="flex flex-col gap-4 min-h-screen justify-center items-center">
                 <NavigationButton id="#profile" />
                 <NavigationButton id="#project" />
+                <NavigationButton id="#contact" />
             </div>
         </div>
     )

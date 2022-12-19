@@ -4,6 +4,7 @@ import Header from "../components/header"
 import Container from "../components/container"
 import ProjectPage from "../components/projectPage"
 import ProfilePage from "../components/profilePage"
+import ContactPage from "../components/contactPage"
 import NavigationBar from "../components/navigationBar"
 
 export default function Home() {
@@ -27,6 +28,7 @@ export default function Home() {
             <Container isDark={isDark}>
                 <ProfilePage isEnglish={isEnglish} />
                 <ProjectPage isEnglish={isEnglish} />
+                <ContactPage isEnglish={isEnglish} />
             </Container>
         </div >
     )

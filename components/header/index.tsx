@@ -1,11 +1,12 @@
-import Container from "../container"
-import SwitchButton from "../button/switchButton"
-import { SunIcon, MoonIcon, XMarkIcon, Bars3Icon } from '@heroicons/react/24/solid'
 import Image from "next/image"
 import { useState } from "react"
-import ProfileText from "../text/profileText"
+import Container from "../container"
 import Page from "../container/page"
+import ProfileText from "../text/profileText"
 import ProjectText from "../text/projectText"
+import ContactText from "../text/contactText"
+import SwitchButton from "../button/switchButton"
+import { SunIcon, MoonIcon, XMarkIcon, Bars3Icon } from '@heroicons/react/24/solid'
 
 interface HeaderProps {
     isDark: boolean,
@@ -29,6 +30,7 @@ export default function Header(props: HeaderProps) {
                 <div className={classNameMenuContent}>
                     <ProfileText isEnglish={props.isEnglish} />
                     <ProjectText isEnglish={props.isEnglish} />
+                    <ContactText isEnglish={props.isEnglish} />
                 </div>
             </div>
             <div className="fixed top-0 min-w-full h-20 bg-gray-800">
@@ -45,6 +47,7 @@ export default function Header(props: HeaderProps) {
                             <div className="hidden sm:flex w-full sm:flex-row justify-center items-center">
                                 <ProfileText isEnglish={props.isEnglish} />
                                 <ProjectText isEnglish={props.isEnglish} />
+                                <ContactText isEnglish={props.isEnglish} />
                             </div>
                             <div className="flex flex-row items-center">
                                 <SwitchButton

@@ -1,11 +1,22 @@
-import Page from "../container/page";
-import ProjectBubble, { Project } from "../container/projectBubble";
+import Page from "../container/page"
+import ProjectBubble, { Project } from "../container/projectBubble"
+import { ArrowLeftCircleIcon, ArrowRightCircleIcon } from "@heroicons/react/24/solid"
 
 interface ProjectPageProps {
     id?: string,
     isEnglish?: boolean,
     className?: string,
     children?: any | any[],
+}
+
+const defaultProject: Project = {
+    name: "default",
+    image: "",
+    github: "",
+    online: "",
+    description: "",
+    descriptionEnglish: "",
+    technologies: [],
 }
 
 const projects: Project[] = [
@@ -32,15 +43,22 @@ export default function ProjectPage(props: ProjectPageProps) {
     return (
         <Page
             id="project"
-            className="bg-gray-200 text-black dark:bg-gray-700 dark:text-white"
+            className="bg-gray-200 text-black dark:bg-gray-900 dark:text-white"
         >
-            <div className="flex flex-row gap-2 justify-center">
-                <>
-                    {projects.map((element, index) => (
-                        <ProjectBubble key={element.name + "-" + index} isEnglish={props.isEnglish} project={element} />
-                    ))}
-                </>
+            <div className="flex flex-row justify-center items-center">
+                <div className="hidden p-4 flex-row gap-2 justify-between">
+                    <ArrowLeftCircleIcon className="h-6 w-6 text-slate-800" />
+                </div>
+                <div className="flex flex-col gap-2">
+                    <div className="flex flex-row gap-2 justify-between">
+                        <ProjectBubble isEnglish={props.isEnglish} project={projects[0]} />
+                        <ProjectBubble isEnglish={props.isEnglish} project={projects[1]} />
+                    </div>
+                </div>
+                <div className="p-4 hidden flex-row items-center">
+                    <ArrowRightCircleIcon className="h-6 w-6 text-slate-800" />
+                </div>
             </div>
-        </Page>
+        </Page >
     )
 }
