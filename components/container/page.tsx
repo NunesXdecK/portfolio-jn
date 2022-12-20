@@ -8,7 +8,7 @@ interface PageProps {
 }
 
 export default function Page(props: PageProps) {
-    let className = "flex flex-col justify-center items-center align-middle min-w-max p-4"
+    let className = "flex flex-col justify-center items-center align-middle min-w-max"
     if (props.className) {
         className = className + " " + props.className
     }
@@ -37,7 +37,7 @@ export default function Page(props: PageProps) {
     })
     return (
         <div id={props.id} className={className}>
-            <div className="w-screen max-w-[1260px]">
+            <div className="w-screen max-w-[1260px] p-4">
                 {props.children}
             </div>
         </div>

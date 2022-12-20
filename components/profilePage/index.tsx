@@ -15,7 +15,7 @@ export default function ProfilePage(props: ProfilePageProps) {
     return (
         <Page
             id="profile"
-            className="bg-indigo-200 text-black dark:bg-indigo-800 dark:text-white"
+            className="pt-10 bg-indigo-200 text-black dark:bg-indigo-800 dark:text-white"
         >
             <ChatBubble
                 isLeft

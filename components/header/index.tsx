@@ -28,9 +28,9 @@ export default function Header(props: HeaderProps) {
         <>
             <div className={classNameMenuHolder}>
                 <div className={classNameMenuContent}>
-                    <ProfileText isEnglish={props.isEnglish} />
-                    <ProjectText isEnglish={props.isEnglish} />
-                    <ContactText isEnglish={props.isEnglish} />
+                    <ProfileText onClick={setIsOpenMenu} isEnglish={props.isEnglish} />
+                    <ProjectText onClick={setIsOpenMenu} isEnglish={props.isEnglish} />
+                    <ContactText onClick={setIsOpenMenu} isEnglish={props.isEnglish} />
                 </div>
             </div>
             <div className="fixed top-0 min-w-full h-20 bg-gray-800">
