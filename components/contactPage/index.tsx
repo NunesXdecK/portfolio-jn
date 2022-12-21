@@ -1,9 +1,11 @@
-import Image from "next/image"
+import Text from "../text"
 import Button from "../button"
+import { useState } from "react"
 import Page from "../container/page"
 import InputText from "../inputText"
 import InputTextArea from "../inputTextArea"
-import Text from "../text"
+import EmailInputText, { isEmailValid } from "../inputText/emailInputText"
+import TelephoneInputText, { handleRemoveMaskTelephone, isTelephoneValid } from "../inputText/telephoneInputText"
 
 interface ContactPageProps {
     id?: string,
@@ -11,8 +13,76 @@ interface ContactPageProps {
     className?: string,
     children?: any | any[],
 }
+interface Email {
+    name?: string,
+    email?: string,
+    message?: string,
+    telephone?: string,
+}
+interface EmailRes {
+    isValid: boolean,
+    messages: string[],
+}
+export const defaultEmail: Email = {
+    name: "",
+    email: "",
+    message: "",
+    telephone: "",
+}
+
+export const validEmail = (email: Email): EmailRes => {
+    let res: EmailRes = { isValid: true, messages: [] }
+    if (!email?.name?.length) {
+        res = { isValid: false, messages: [...res.messages, "Informe um nome"] }
+    }
+    if (email.email && email?.email?.length > 0 && !isEmailValid(email.email)) {
+        res = { isValid: false, messages: [...res.messages, "Email inválido"] }
+    }
+    if (email.telephone && email?.telephone?.length > 0 && !isTelephoneValid(email.telephone)) {
+        res = { isValid: false, messages: [...res.messages, "Telephone inválido"] }
+    }
+    if (!email?.message?.length) {
+        res = { isValid: false, messages: [...res.messages, "Escreva uma mensagem"] }
+    }
+    return res
+}
 
 export default function ContactPage(props: ContactPageProps) {
+    const [isLoading, setIsLoading] = useState<boolean>(false)
+    const [email, setEmail] = useState<Email>(defaultEmail)
+    const handleSetName = (value: string) => { setEmail({ ...email, name: value }) }
+    const handleSetEmail = (value: string) => { setEmail({ ...email, email: value }) }
+    const handleSetMessage = (value: string) => { setEmail({ ...email, message: value }) }
+    const handleSetTelefone = (value: string) => { setEmail({ ...email, telephone: value }) }
+
+    const handleSendEmail = async () => {
+        setIsLoading(true)
+        const isValid = validEmail({
+            ...email,
+            telephone: handleRemoveMaskTelephone(email.telephone ?? "")
+        })
+        if (isValid.isValid) {
+            const res = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json, text/plain, */*',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(email)
+            }).then((res) => res.json())
+            if (res.status) {
+                setEmail(defaultEmail)
+            }
+        } else {
+            let message = ""
+            isValid.messages.map((element, index) => {
+                message = message + element + "\n"
+            })
+            alert(message)
+        }
+        setIsLoading(false)
+    }
+
     return (
         <Page
             id="contact"
@@ -28,25 +98,39 @@ export default function ContactPage(props: ContactPageProps) {
                     />
                     <InputText
                         placeholder="Nome"
+                        value={email.name}
+                        isLoading={isLoading}
+                        onSet={handleSetName}
                         placeholderEnglish="Name"
                         isEnglish={props.isEnglish}
                     />
-                    <InputText
+                    <TelephoneInputText
+                        isLoading={isLoading}
                         placeholder="Telefone"
-                        placeholderEnglish="Telephone"
+                        value={email.telephone}
+                        onSet={handleSetTelefone}
                         isEnglish={props.isEnglish}
+                        placeholderEnglish="Telephone"
                     />
-                    <InputText
+                    <EmailInputText
+                        value={email.email}
                         placeholder="E-mail"
+                        isLoading={isLoading}
+                        onSet={handleSetEmail}
                         placeholderEnglish="E-mail"
                         isEnglish={props.isEnglish}
                     />
                     <InputTextArea
+                        isLoading={isLoading}
+                        value={email.message}
                         placeholder="Mensagem"
-                        placeholderEnglish="Message"
+                        onSet={handleSetMessage}
                         isEnglish={props.isEnglish}
+                        placeholderEnglish="Message"
                     />
                     <Button
+                        isLoading={isLoading}
+                        onClick={handleSendEmail}
                         className="mt-2 p-2 rounded w-full duration-200 text-gray-100 hover:text-gray-200 bg-indigo-600 hover:bg-indigo-800"
                     >
                         {props.isEnglish ? "SEND" : "ENVIAR"}

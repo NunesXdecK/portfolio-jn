@@ -1,6 +1,7 @@
 interface ButtonProps {
     id?: string,
     className?: string,
+    isLoading?: boolean,
     children?: any | any[],
     onClick?: (event: any) => void,
 }
@@ -10,7 +11,9 @@ export default function Button(props: ButtonProps) {
     if (props.className) {
         className = className + " " + props.className
     }
-
+    if (props.isLoading) {
+        className = className + " opacity-80"
+    }
     const handleOnClick = (event: any) => {
         if (props.onClick) {
             props.onClick(event)
@@ -18,7 +21,10 @@ export default function Button(props: ButtonProps) {
     }
 
     return (
-        <button id={props.id} className={className}
+        <button
+            id={props.id}
+            className={className}
+            disabled={props.isLoading}
             onClick={(event) => {
                 handleOnClick(event)
             }}

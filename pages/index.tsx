@@ -15,7 +15,7 @@ export default function Home() {
         <div>
             <Head>
                 <title>Portifolio José de Souza Nunes Neto</title>
-                <link rel="icon" href="/favicon.ico" />
+                <link rel="icon" href="/profile-image-ico.png" />
                 <meta name="description" content="Portifolio José de Souza Nunes Neto" />
             </Head>
             <NavigationBar />
