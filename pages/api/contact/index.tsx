@@ -50,12 +50,12 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Data>)
     })
     transporter.sendMail(mailToMeData, (err: any, info: any) => {
         if (err) {
-            console.error(err)
+            console.log(err)
         }
     })
     transporter.sendMail(mailToPersonData, (err: any, info: any) => {
         if (err) {
-            console.error(err)
+            console.log(err)
         }
     })
     /*
