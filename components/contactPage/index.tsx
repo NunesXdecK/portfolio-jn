@@ -70,7 +70,6 @@ export default function ContactPage(props: ContactPageProps) {
                 },
                 body: JSON.stringify(email)
             }).then((res) => res.json())
-            console.log(res)
             if (res.success) {
                 setEmail(defaultEmail)
             }

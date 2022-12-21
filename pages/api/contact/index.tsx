@@ -36,35 +36,40 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Data>)
                 José Neto
             </div>`
     }
-
-    let nodemailer = require("nodemailer")
-    const transporter = nodemailer.createTransport({
-        port: 465,
-        host: "smtp.gmail.com",
-        auth: {
-            user: process.env.NEXT_PUBLIC_EMAIL,
-            pass: process.env.NEXT_PUBLIC_PASSWORD,
-        },
-        secure: true,
-        secureConnection: true,
-    })
-    transporter.sendMail(mailToMeData, (err: any, info: any) => {
-        if (info) {
-            console.log(info)
-        }
-        if (err) {
-            console.log(err)
-        }
-    })
-    transporter.sendMail(mailToPersonData, (err: any, info: any) => {
-        if (info) {
-            console.log(info)
-        }
-        if (err) {
-            console.log(err)
-        }
-    })
+    let response = false
+    try {
+        let nodemailer = require("nodemailer")
+        const transporter = nodemailer.createTransport({
+            port: 465,
+            host: "smtp.gmail.com",
+            auth: {
+                user: process.env.NEXT_PUBLIC_EMAIL,
+                pass: process.env.NEXT_PUBLIC_PASSWORD,
+            },
+            secure: true,
+            secureConnection: true,
+        })
+        transporter.sendMail(mailToMeData, (err: any, info: any) => {
+            if (info) {
+                console.log(info)
+            }
+            if (err) {
+                console.log(err)
+            }
+        })
+        transporter.sendMail(mailToPersonData, (err: any, info: any) => {
+            if (info) {
+                console.log(info)
+            }
+            if (err) {
+                console.log(err)
+            }
+        })
+        response = true
+    } catch (err) {
+        console.log(err)
+    }
     /*
     */
-    res.status(200).json({ success: true })
+    res.status(200).json({ success: response })
 }
