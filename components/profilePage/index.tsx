@@ -17,24 +17,28 @@ export default function ProfilePage(props: ProfilePageProps) {
             id="profile"
             className="pt-10 bg-indigo-200 text-black dark:bg-indigo-800 dark:text-white"
         >
-            <ChatBubble
-                isLeft
-            >
-                <Text
-                    isEnglish={props.isEnglish}
-                    text="Oi, eu sou José."
-                    textEnglish="Hi, im José."
-                />
-            </ChatBubble>
-            <ChatBubble
-                isLeft
-            >
-                <Text
-                    isEnglish={props.isEnglish}
-                    text="Eu trabalho com desenvolvimento desde 2013, começei com JAVA EE e estudo React e React-Native desde 2019."
-                    textEnglish="I work with software development since 2013, started with JAVA EE and since 2019 i have been studying React and React-Native."
-                />
-            </ChatBubble>
+            <div className="flex flex-col w-full items-start sm:items-center">
+                <div>
+                    <ChatBubble
+                        isLeft
+                    >
+                        <Text
+                            isEnglish={props.isEnglish}
+                            text="Oi, eu sou José."
+                            textEnglish="Hi, im José."
+                        />
+                    </ChatBubble>
+                    <ChatBubble
+                        isLeft
+                    >
+                        <Text
+                            isEnglish={props.isEnglish}
+                            text="Eu trabalho com desenvolvimento desde 2013, começei com JAVA EE e estudo React e React-Native desde 2019."
+                            textEnglish="I work with software development since 2013, started with JAVA EE and since 2019 i have been studying React and React-Native."
+                        />
+                    </ChatBubble>
+                </div>
+            </div>
             <div className="flex flex-col gap-2">
                 <ImageBubble isCenter className="mt-4 mr-20 -mb-52">
                     <Image width={200} height={200}

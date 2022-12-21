@@ -27,23 +27,23 @@ export default function ContactPage(props: ContactPageProps) {
                         className="text-gray-200 text-xl"
                     />
                     <InputText
-                        title="Nome"
-                        titleEnglish="Name"
+                        placeholder="Nome"
+                        placeholderEnglish="Name"
                         isEnglish={props.isEnglish}
                     />
                     <InputText
-                        title="Telefone"
-                        titleEnglish="Telephone"
+                        placeholder="Telefone"
+                        placeholderEnglish="Telephone"
                         isEnglish={props.isEnglish}
                     />
                     <InputText
-                        title="E-mail"
-                        titleEnglish="E-mail"
+                        placeholder="E-mail"
+                        placeholderEnglish="E-mail"
                         isEnglish={props.isEnglish}
                     />
                     <InputTextArea
-                        title="Mensagem"
-                        titleEnglish="Message"
+                        placeholder="Mensagem"
+                        placeholderEnglish="Message"
                         isEnglish={props.isEnglish}
                     />
                     <Button

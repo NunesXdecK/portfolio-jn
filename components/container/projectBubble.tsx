@@ -22,7 +22,7 @@ export interface Project {
 }
 
 export default function ProjectBubble(props: ProjectBubbleProps) {
-    let holderClassName = "w-full text-center p-4 rounded shadow border-2 border-gray-400"
+    let holderClassName = "text-center p-4 rounded shadow border-2 border-gray-400"
     if (props?.project?.name === "default") {
         holderClassName = holderClassName + " "
     }
@@ -31,7 +31,7 @@ export default function ProjectBubble(props: ProjectBubbleProps) {
             id={props.project.name}
             className={holderClassName}>
             <Text text={props.project.name} className="text-md sm:text-3xl" />
-            <div className="flex flex-col items-center justify-center">
+            <div className="flex flex-col items-center justify-center align-middle">
                 <Image width={200} height={200}
                     priority
                     alt="/alt-image.png"
@@ -49,7 +49,7 @@ export default function ProjectBubble(props: ProjectBubbleProps) {
                 </div>
             </div>
             <ChatBubble
-                className="w-full my-6 hidden sm:block">
+                className=" text-left my-6 hidden sm:block">
                 <Text
                     className="text-lg"
                     isEnglish={props.isEnglish}
