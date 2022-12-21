@@ -64,8 +64,8 @@ export const handleMaskTelephone = (text: string) => {
 }
 
 export const isTelephoneValid = (text: string) => {
-    if (!text && text.length === 0) {
-        return true
+    if (!text || text.length === 0) {
+        return false
     }
     text = handleRemoveMaskTelephone(text)
     return text?.length === 0 || (text.length > 9 && text.length < 12)
@@ -83,7 +83,6 @@ export default function TelephoneInputText(props: TelephoneInputTextProps) {
         <InputText
             value={text}
             id={props.id}
-            isInvalid={!test}
             title={props.title}
             onSet={handleOnSet}
             isLoading={props.isLoading}
@@ -92,6 +91,7 @@ export default function TelephoneInputText(props: TelephoneInputTextProps) {
             placeholder={props.placeholder}
             titleEnglish={props.titleEnglish}
             placeholderEnglish={props.placeholderEnglish}
+            isInvalid={props.value?.length === 0 ? false : !test}
         />
     )
 }

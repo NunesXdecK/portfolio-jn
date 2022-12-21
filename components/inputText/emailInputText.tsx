@@ -15,8 +15,8 @@ interface EmailInputTextProps {
 
 export const EMAIL_PATTERN = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
 export const isEmailValid = (text: string) => {
-    if (!text && text.length === 0) {
-        return true
+    if (!text || text.length === 0) {
+        return false
     }
     return new RegExp(EMAIL_PATTERN).test(text)
 }
@@ -33,7 +33,6 @@ export default function EmailInputText(props: EmailInputTextProps) {
         <InputText
             value={text}
             id={props.id}
-            isInvalid={!test}
             title={props.title}
             onSet={handleOnSet}
             isLoading={props.isLoading}
@@ -42,6 +41,7 @@ export default function EmailInputText(props: EmailInputTextProps) {
             placeholder={props.placeholder}
             titleEnglish={props.titleEnglish}
             placeholderEnglish={props.placeholderEnglish}
+            isInvalid={props.value?.length === 0 ? false : !test}
         />
     )
 }

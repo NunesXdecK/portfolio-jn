@@ -49,11 +49,17 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Data>)
         secureConnection: true,
     })
     transporter.sendMail(mailToMeData, (err: any, info: any) => {
+        if (info) {
+            console.log(info)
+        }
         if (err) {
             console.log(err)
         }
     })
     transporter.sendMail(mailToPersonData, (err: any, info: any) => {
+        if (info) {
+            console.log(info)
+        }
         if (err) {
             console.log(err)
         }

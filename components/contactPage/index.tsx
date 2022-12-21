@@ -35,10 +35,10 @@ export const validEmail = (email: Email): EmailRes => {
     if (!email?.name?.length) {
         res = { isValid: false, messages: [...res.messages, "Informe um nome"] }
     }
-    if (email.email && email?.email?.length > 0 && !isEmailValid(email.email)) {
+    if (!isEmailValid(email?.email ?? "")) {
         res = { isValid: false, messages: [...res.messages, "Email inválido"] }
     }
-    if (email.telephone && email?.telephone?.length > 0 && !isTelephoneValid(email.telephone)) {
+    if (!isTelephoneValid(email?.telephone ?? "")) {
         res = { isValid: false, messages: [...res.messages, "Telephone inválido"] }
     }
     if (!email?.message?.length) {
@@ -70,7 +70,8 @@ export default function ContactPage(props: ContactPageProps) {
                 },
                 body: JSON.stringify(email)
             }).then((res) => res.json())
-            if (res.status) {
+            console.log(res)
+            if (res.success) {
                 setEmail(defaultEmail)
             }
         } else {
