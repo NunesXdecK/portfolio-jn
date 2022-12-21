@@ -46,6 +46,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Data>)
             pass: process.env.NEXT_PUBLIC_PASSWORD,
         },
         secure: true,
+        secureConnection: true,
     })
     transporter.sendMail(mailToMeData, (err: any, info: any) => {
         if (err) {
