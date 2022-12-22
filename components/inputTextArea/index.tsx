@@ -14,7 +14,7 @@ interface InputTextAreaProps {
 }
 
 export default function InputTextArea(props: InputTextAreaProps) {
-    let inputClassName = "w-full min-h-[100px] p-2 rounded-sm bg-gray-200 resize-y"
+    let inputClassName = "w-full min-h-[100px] p-2 text-gray-800 rounded-sm bg-gray-200 resize-y"
     let inputBorderClassName = " border-none focus:click:active:hover:border-none outline-none focus:click:active:hover:outline-none"
     if (props.isInvalid) {
         inputBorderClassName = " shadow shadow-red-500 border border-red-500 outline-none focus:click:active:hover:outline-none"

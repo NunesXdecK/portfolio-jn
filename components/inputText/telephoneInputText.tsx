@@ -74,7 +74,7 @@ export const isTelephoneValid = (text: string) => {
 export default function TelephoneInputText(props: TelephoneInputTextProps) {
     const handleOnSet = (value: string) => {
         if (props.onSet) {
-            props.onSet(value)
+            props.onSet(handleRemoveMaskTelephone(value))
         }
     }
     let text = handleMaskTelephone(props.value ?? "")
@@ -85,6 +85,8 @@ export default function TelephoneInputText(props: TelephoneInputTextProps) {
             id={props.id}
             title={props.title}
             onSet={handleOnSet}
+            inputMode="numeric"
+            pattern="[0-9]*"
             isLoading={props.isLoading}
             className={props.className}
             isEnglish={props.isEnglish}

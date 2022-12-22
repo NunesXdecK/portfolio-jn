@@ -84,7 +84,7 @@ export default function ContactPage(props: ContactPageProps) {
                 setEmail(defaultEmail)
                 handleShowMessage({ ...feedbackMessage, messageType: "SUCCESS", messages: ["Mensagem enviada!"] })
             } else {
-                handleShowMessage({ ...feedbackMessage, messageType: "ERROR", messages: isValid.messages })
+                handleShowMessage({ ...feedbackMessage, messageType: "ERROR", messages: ["Algo deu errado!"] })
             }
         } else {
             handleShowMessage({ ...feedbackMessage, messageType: "ERROR", messages: isValid.messages })

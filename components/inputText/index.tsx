@@ -1,7 +1,11 @@
+type InputMode = "search" | "text" | "none" | "tel" | "url" | "email" | "numeric" | "decimal" | undefined
 interface InputTextProps {
     id?: string,
+    type?: string,
     value?: string,
     title?: string,
+    pattern?: string,
+    inputMode?: InputMode,
     placeholder?: string,
     titleEnglish?: string,
     placeholderEnglish?: string,
@@ -38,7 +42,10 @@ export default function InputText(props: InputTextProps) {
             <input
                 id={props.id}
                 value={props.value}
+                pattern={props.pattern}
                 disabled={props.isLoading}
+                inputMode={props.inputMode}
+                type={props.type ?? "text"}
                 className={inputClassName + inputBorderClassName}
                 placeholder={props.isEnglish ? props.placeholderEnglish : props.placeholder}
                 onChange={(event) => {

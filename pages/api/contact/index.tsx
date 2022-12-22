@@ -4,8 +4,21 @@ type Data = {
     success: boolean
 }
 
+const nodemailer = require("nodemailer")
+
+const transporter = nodemailer.createTransport({
+    port: 465,
+    host: "smtp.gmail.com",
+    auth: {
+        user: process.env.NEXT_PUBLIC_EMAIL,
+        pass: process.env.NEXT_PUBLIC_PASSWORD,
+    },
+    secure: true,
+    secureConnection: true,
+})
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
-    let response = false
+    let resu = true
     const mailToMeData = {
         from: process.env.NEXT_PUBLIC_EMAIL,
         to: process.env.NEXT_PRIVATE_EMAIL,
@@ -38,18 +51,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
             </div>`
     }
     try {
-        let nodemailer = require("nodemailer")
-        const transporter = nodemailer.createTransport({
-            port: 465,
-            host: "smtp.gmail.com",
-            auth: {
-                user: process.env.NEXT_PUBLIC_EMAIL,
-                pass: process.env.NEXT_PUBLIC_PASSWORD,
-            },
-            secure: true,
-            secureConnection: true,
-        })
-        await new Promise(async (resolve, reject) => {
+        await new Promise((resolve, reject) => {
             transporter.sendMail(mailToMeData, (err: any, info: any) => {
                 if (info) {
                     console.log(info)
@@ -58,8 +60,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
                     console.log(err)
                 }
             })
-        })
-        await new Promise(async (resolve, reject) => {
             transporter.sendMail(mailToPersonData, (err: any, info: any) => {
                 if (info) {
                     console.log(info)
@@ -68,10 +68,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
                     console.log(err)
                 }
             })
+            resolve(null)
         })
-        response = true
     } catch (err) {
+        resu = false
         console.log(err)
     }
-    res.status(200).json({ success: response })
+    res.status(200).json({ success: true })
 }
