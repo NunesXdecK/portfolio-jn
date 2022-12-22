@@ -14,7 +14,7 @@ interface InputTextProps {
 }
 
 export default function InputText(props: InputTextProps) {
-    let inputClassName = "w-full p-2 rounded-sm bg-gray-200"
+    let inputClassName = "w-full p-2 rounded-sm bg-gray-200 text-gray-800"
     let inputBorderClassName = " border-none focus:click:active:hover:border-none outline-none focus:click:active:hover:outline-none"
     if (props.isInvalid) {
         inputBorderClassName = " shadow shadow-red-500 border border-red-500 outline-none focus:click:active:hover:outline-none"

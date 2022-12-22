@@ -142,13 +142,6 @@ export default function ContactPage(props: ContactPageProps) {
                     >
                         {props.isEnglish ? "SEND" : "ENVIAR"}
                     </Button>
-                    <Button
-                        isLoading={isLoading}
-                        onClick={() => handleShowMessage({ ...defaultFeedbackMessage, messageType: "SUCCESS", messages: ["teste"] })}
-                        className="mt-2 p-2 rounded w-full duration-200 text-gray-100 hover:text-gray-200 bg-indigo-600 hover:bg-indigo-800"
-                    >
-                        {props.isEnglish ? "SEND" : "ENVIAR"}
-                    </Button>
 
                     <div className="w-full flex flex-row gap-2 py-2 justify-center">
                         <a href="https://www.linkedin.com/in/jos%C3%A9-neto-54b571b6" className="duration-200 bg-gray-200 hover:bg-gray-400 rounded-full self-center" target="_blank" rel="noreferrer">

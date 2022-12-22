@@ -4,7 +4,8 @@ type Data = {
     success: boolean
 }
 
-export default function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
+    let response = false
     const mailToMeData = {
         from: process.env.NEXT_PUBLIC_EMAIL,
         to: process.env.NEXT_PRIVATE_EMAIL,
@@ -36,7 +37,6 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Data>)
                 José Neto
             </div>`
     }
-    let response = false
     try {
         let nodemailer = require("nodemailer")
         const transporter = nodemailer.createTransport({
@@ -49,7 +49,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Data>)
             secure: true,
             secureConnection: true,
         })
-        transporter.sendMail(mailToMeData, (err: any, info: any) => {
+        await transporter.sendMail(mailToMeData, (err: any, info: any) => {
             if (info) {
                 console.log(info)
             }
@@ -57,7 +57,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Data>)
                 console.log(err)
             }
         })
-        transporter.sendMail(mailToPersonData, (err: any, info: any) => {
+        await transporter.sendMail(mailToPersonData, (err: any, info: any) => {
             if (info) {
                 console.log(info)
             }
@@ -69,7 +69,5 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Data>)
     } catch (err) {
         console.log(err)
     }
-    /*
-    */
     res.status(200).json({ success: response })
 }
