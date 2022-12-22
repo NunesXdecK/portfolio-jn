@@ -15,7 +15,7 @@ export default function ProfilePage(props: ProfilePageProps) {
     return (
         <Page
             id="profile"
-            className="pt-10 bg-indigo-200 text-black dark:bg-indigo-800 dark:text-white"
+            className="duration-500 pt-10 bg-[url('/endless-constellation.svg')] dark:bg-[url('/endless-constellation-dark.svg')] text-black dark:text-white"
         >
             <div className="flex flex-col w-full items-start sm:items-center">
                 <div>

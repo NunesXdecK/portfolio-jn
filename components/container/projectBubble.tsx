@@ -22,7 +22,7 @@ export interface Project {
 }
 
 export default function ProjectBubble(props: ProjectBubbleProps) {
-    let holderClassName = "text-center p-4 rounded shadow border-2 border-gray-400"
+    let holderClassName = "duration-200 bg-gray-200 dark:bg-gray-400 text-center p-4 rounded shadow border-2 border-gray-400"
     if (props?.project?.name === "default") {
         holderClassName = holderClassName + " "
     }
@@ -30,7 +30,7 @@ export default function ProjectBubble(props: ProjectBubbleProps) {
         <div
             id={props.project.name}
             className={holderClassName}>
-            <Text text={props.project.name} className="text-md sm:text-3xl" />
+            <Text text={props.project.name} className="dark:text-gray-200 text-md sm:text-3xl" />
             <div className="flex flex-col items-center justify-center align-middle">
                 <Image width={200} height={200}
                     priority

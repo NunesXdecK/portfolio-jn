@@ -97,10 +97,10 @@ export default function ContactPage(props: ContactPageProps) {
     return (
         <Page
             id="contact"
-            className="bg-gray-400 dark:bg-gray-700 "
+            className="duration-500 bg-[url('/subtle-prism.svg')] dark:bg-[url('/subtle-prism-dark.svg')]"
         >
             <div className="w-full flex flex-row gap-2 justify-center">
-                <div className="border-1 border-gray-300">
+                <div className="duration-500 p-4 shadow rounded bg-gray-400 dark:bg-gray-600 border-1 border-gray-300">
                     <Text
                         isEnglish={props.isEnglish}
                         text="Me mande uma mensagem"

@@ -43,7 +43,7 @@ export default function ProjectPage(props: ProjectPageProps) {
     return (
         <Page
             id="project"
-            className="bg-gray-200 text-black dark:bg-gray-900 dark:text-white"
+            className="duration-500 bg-[url('/hollowed-boxes.svg')] dark:bg-[url('/hollowed-boxes-dark.svg')] text-black dark:text-white"
         >
             <div className="flex flex-row justify-center items-center">
                 <div className="hidden p-4 flex-row gap-2 justify-between">
