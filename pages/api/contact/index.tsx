@@ -58,6 +58,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
                     console.log(err)
                 }
             })
+        })
+        await new Promise(async (resolve, reject) => {
             transporter.sendMail(mailToPersonData, (err: any, info: any) => {
                 if (info) {
                     console.log(info)
