@@ -68,6 +68,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
                     console.log(err)
                 }
             })
+            resolve(null)
         })
     } catch (err) {
         resu = false
