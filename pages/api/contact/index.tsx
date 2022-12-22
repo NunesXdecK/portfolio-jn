@@ -51,8 +51,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
             </div>`
     }
     try {
-        await new Promise((resolve, reject) => {
-            transporter.sendMail(mailToMeData, (err: any, info: any) => {
+        await new Promise(async(resolve, reject) => {
+            await transporter.sendMail(mailToMeData, (err: any, info: any) => {
                 if (info) {
                     console.log(info)
                 }
@@ -60,7 +60,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
                     console.log(err)
                 }
             })
-            transporter.sendMail(mailToPersonData, (err: any, info: any) => {
+            await transporter.sendMail(mailToPersonData, (err: any, info: any) => {
                 if (info) {
                     console.log(info)
                 }
