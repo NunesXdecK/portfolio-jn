@@ -6,6 +6,7 @@ import InputText from "../inputText"
 import InputTextArea from "../inputTextArea"
 import EmailInputText, { isEmailValid } from "../inputText/emailInputText"
 import TelephoneInputText, { handleRemoveMaskTelephone, isTelephoneValid } from "../inputText/telephoneInputText"
+import FeedbackMessageModal, { FeedbackMessage, defaultFeedbackMessage } from "../feedbackMessage"
 
 interface ContactPageProps {
     id?: string,
@@ -48,12 +49,21 @@ export const validEmail = (email: Email): EmailRes => {
 }
 
 export default function ContactPage(props: ContactPageProps) {
+    const [isOpen, setIsOpen] = useState<boolean>(false)
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [email, setEmail] = useState<Email>(defaultEmail)
+    const [feedbackMessage, setFeedbackMessage] = useState<FeedbackMessage>(defaultFeedbackMessage)
     const handleSetName = (value: string) => { setEmail({ ...email, name: value }) }
     const handleSetEmail = (value: string) => { setEmail({ ...email, email: value }) }
     const handleSetMessage = (value: string) => { setEmail({ ...email, message: value }) }
     const handleSetTelefone = (value: string) => { setEmail({ ...email, telephone: value }) }
+
+    const handleShowMessage = (feedbackMessage: FeedbackMessage) => {
+        if (!isOpen) {
+            setIsOpen(true)
+            setFeedbackMessage(feedbackMessage)
+        }
+    }
 
     const handleSendEmail = async () => {
         setIsLoading(true)
@@ -73,12 +83,9 @@ export default function ContactPage(props: ContactPageProps) {
             if (res.success) {
                 setEmail(defaultEmail)
             }
+            handleShowMessage({ ...feedbackMessage, messageType: "SUCCESS", messages: ["Mensagem enviada!"] })
         } else {
-            let message = ""
-            isValid.messages.map((element, index) => {
-                message = message + element + "\n"
-            })
-            alert(message)
+            handleShowMessage({ ...feedbackMessage, messageType: "ERROR", messages: isValid.messages })
         }
         setIsLoading(false)
     }
@@ -135,6 +142,13 @@ export default function ContactPage(props: ContactPageProps) {
                     >
                         {props.isEnglish ? "SEND" : "ENVIAR"}
                     </Button>
+                    <Button
+                        isLoading={isLoading}
+                        onClick={() => handleShowMessage({ ...defaultFeedbackMessage, messageType: "SUCCESS", messages: ["teste"] })}
+                        className="mt-2 p-2 rounded w-full duration-200 text-gray-100 hover:text-gray-200 bg-indigo-600 hover:bg-indigo-800"
+                    >
+                        {props.isEnglish ? "SEND" : "ENVIAR"}
+                    </Button>
 
                     <div className="w-full flex flex-row gap-2 py-2 justify-center">
                         <a href="https://www.linkedin.com/in/jos%C3%A9-neto-54b571b6" className="duration-200 bg-gray-200 hover:bg-gray-400 rounded-full self-center" target="_blank" rel="noreferrer">
@@ -160,6 +174,7 @@ export default function ContactPage(props: ContactPageProps) {
                     </div>
                 </div>
             </div>
+            <FeedbackMessageModal isOpen={isOpen} feedbackMessage={feedbackMessage} setIsOpen={setIsOpen} />
         </Page>
     )
 }
