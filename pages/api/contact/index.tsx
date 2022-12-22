@@ -49,21 +49,23 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
             secure: true,
             secureConnection: true,
         })
-        await transporter.sendMail(mailToMeData, (err: any, info: any) => {
-            if (info) {
-                console.log(info)
-            }
-            if (err) {
-                console.log(err)
-            }
-        })
-        await transporter.sendMail(mailToPersonData, (err: any, info: any) => {
-            if (info) {
-                console.log(info)
-            }
-            if (err) {
-                console.log(err)
-            }
+        await new Promise(async (resolve, reject) => {
+            transporter.sendMail(mailToMeData, (err: any, info: any) => {
+                if (info) {
+                    console.log(info)
+                }
+                if (err) {
+                    console.log(err)
+                }
+            })
+            transporter.sendMail(mailToPersonData, (err: any, info: any) => {
+                if (info) {
+                    console.log(info)
+                }
+                if (err) {
+                    console.log(err)
+                }
+            })
         })
         response = true
     } catch (err) {
