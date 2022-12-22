@@ -80,12 +80,14 @@ export default function ContactPage(props: ContactPageProps) {
                 },
                 body: JSON.stringify(email)
             }).then((res) => res.json())
+            setEmail(defaultEmail)
+            handleShowMessage({ ...feedbackMessage, messageType: "SUCCESS", messages: ["Mensagem enviada!"] })
+            /*
             if (res.success) {
-                setEmail(defaultEmail)
-                handleShowMessage({ ...feedbackMessage, messageType: "SUCCESS", messages: ["Mensagem enviada!"] })
             } else {
                 handleShowMessage({ ...feedbackMessage, messageType: "ERROR", messages: ["Algo deu errado!"] })
             }
+            */
         } else {
             handleShowMessage({ ...feedbackMessage, messageType: "ERROR", messages: isValid.messages })
         }
