@@ -44,6 +44,9 @@ export default function ProjectPage(props: ProjectPageProps) {
         <Page
             id="project"
             className="duration-500 bg-[url('/hollowed-boxes.svg')] dark:bg-[url('/hollowed-boxes-dark.svg')] text-black dark:text-white"
+            divisor={(
+                <div className="py-8 -my-8 shadow -skew-y-1 z-10 bg-gray-100" />
+            )}
         >
             <div className="flex flex-row justify-center items-center">
                 <div className="hidden p-4 flex-row gap-2 justify-between">

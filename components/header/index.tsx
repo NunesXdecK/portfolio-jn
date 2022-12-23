@@ -18,10 +18,10 @@ interface HeaderProps {
 export default function Header(props: HeaderProps) {
     const [isOpenMenu, setIsOpenMenu] = useState(false)
     const wh = 25
-    let classNameMenuHolder = "fixed left-0 min-h-screen bg-gray-800"
-    let classNameMenuContent = "hidden"
+    let classNameMenuHolder = "duration-200 z-20 fixed w-0 left-0 min-h-screen bg-gray-800"
+    let classNameMenuContent = "invisible"
     if (isOpenMenu) {
-        classNameMenuHolder = classNameMenuHolder + " w-[50%] sm:w-44"
+        classNameMenuHolder = classNameMenuHolder + " w-[50%] sm:w-44 md:w-[30%]"
         classNameMenuContent = "pt-20 flex flex-col gap-4 w-full"
     }
     return (
@@ -33,7 +33,7 @@ export default function Header(props: HeaderProps) {
                     <ContactText onClick={setIsOpenMenu} isEnglish={props.isEnglish} />
                 </div>
             </div>
-            <div className="fixed top-0 min-w-full h-20 bg-gray-800">
+            <div className="fixed z-20 top-0 min-w-full h-20 bg-gray-800">
                 <Container className="h-20 items-center">
                     <Page>
                         <div className="flex flex-row justify-between items-center">

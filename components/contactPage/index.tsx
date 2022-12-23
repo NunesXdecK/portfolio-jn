@@ -96,10 +96,11 @@ export default function ContactPage(props: ContactPageProps) {
 
     return (
         <Page
+            isLast
             id="contact"
             className="duration-500 bg-[url('/subtle-prism.svg')] dark:bg-[url('/subtle-prism-dark.svg')]"
         >
-            <div className="w-full flex flex-row gap-2 justify-center">
+            <div className="w-full flex flex-row gap-2 justify-center pt-16 sm:pt-0">
                 <div className="duration-500 p-4 shadow rounded bg-gray-400 dark:bg-gray-600 border-1 border-gray-300">
                     <Text
                         isEnglish={props.isEnglish}

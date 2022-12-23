@@ -6,8 +6,8 @@ import Text from "../text";
 
 interface ProfilePageProps {
     id?: string,
-    isEnglish?: boolean,
     className?: string,
+    isEnglish?: boolean,
     children?: any | any[],
 }
 
@@ -16,6 +16,9 @@ export default function ProfilePage(props: ProfilePageProps) {
         <Page
             id="profile"
             className="duration-500 pt-10 bg-[url('/endless-constellation.svg')] dark:bg-[url('/endless-constellation-dark.svg')] text-black dark:text-white"
+            divisor={(
+                <div className="py-8 -my-8 shadow skew-y-1 z-10 bg-cyan-100" />
+            )}
         >
             <div className="flex flex-col w-full items-start sm:items-center">
                 <div>

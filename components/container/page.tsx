@@ -2,8 +2,10 @@ import { UIEvent, useEffect, useState } from "react"
 
 interface PageProps {
     id?: string,
-    isFirst?: boolean,
     className?: string,
+    isLast?: boolean,
+    isFirst?: boolean,
+    divisor?: any | any[],
     children?: any | any[],
 }
 
@@ -36,10 +38,17 @@ export default function Page(props: PageProps) {
         handleResize()
     })
     return (
-        <div id={props.id} className={className}>
-            <div className="w-screen max-w-[1260px] p-4">
-                {props.children}
+        <>
+            <div id={props.id} className={className}>
+                <div className="w-screen max-w-[1260px] p-4">
+                    {props.children}
+                </div>
             </div>
-        </div>
+            {props.divisor && (
+                <>
+                    {props.divisor}
+                </>
+            )}
+        </>
     )
 }
